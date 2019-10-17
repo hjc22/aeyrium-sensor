@@ -1,5 +1,5 @@
 
-# Flutter 获取设备方向 在X，Y,Z 旋转的不同的角度，同WEB标准
+# fork自aeyrium_sensor，修改为 Flutter 获取设备方向 在X，Y,Z 旋转的不同的角度的插件，同WEB标准
 
 支持ios/android
 
