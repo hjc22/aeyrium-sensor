@@ -1,42 +1,28 @@
 
-# Flutter Aeyrium Sensor Plugin 
+# Flutter 获取设备方向 在X，Y,Z 旋转的不同的角度，同WEB标准
 
-[Aeyrium Sensor Plugin](https://pub.dartlang.org/packages/aeyrium_sensor)
+支持ios/android
 
-A Flutter sensor plugin which provide easy access to the Pitch and Roll on Android and iOS devices. It was made using TYPE_ROTATION_VECTOR sensor on Android and DeviceMotion on iOS.
-
-## Import
-
-To use this plugin, add `aeyrium_sensor` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/). For example:
 
 ```yaml
 dependencies:
-  aeyrium_sensor: ^1.0.7
+  aeyrium_sensor: 
+       git: https://github.com/hjc22/aeyrium-sensor
 ```
 
-## Usage
+## 使用
 
 ``` dart
 import 'package:aeyrium_sensor/aeyrium_sensor.dart';
-
-AeyriumSensor.sensorEvents.listen((SensorEvent event) {
-      //do something with the event , values expressed in radians
-      print("Pitch ${event.pitch} and Roll ${event.roll}")
+    
+    // 获取的是角度
+    StreamSubscription sub = AeyriumSensor.sensorEvents.listen((SensorEvent event) {
+      print("alpha ${event.alpha} and beta ${event.beta} and gamma ${event.gamma}")
       
     });
+    
+    // 取消监听
+    sub.cancel();
 
 ```
 
-## Real Demo
-
-We developed this plugin to use it on our Attitude indicator screen.
-[![Aeyrium Sensor](http://img.youtube.com/vi/IIoa9uNka_0/0.jpg)](http://www.youtube.com/watch?v=IIoa9uNka_0 "Attitude indicator")
-
-
-## Issues
-
-Please file any issues, bugs or feature request as an issue on our [GitHub](https://github.com/aeyrium/aeyrium-sensor/issues) page.
-
-## Author
-
-This Aeyrium Sensor plugin for Flutter is developed by [Aeyrium Inc](https://aeyrium.com)
