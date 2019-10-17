@@ -8,16 +8,19 @@ const EventChannel _sensorEventChannel =
 class SensorEvent {
   /// Pitch from the device in radians
   /// A pitch is a rotation around a lateral (X) axis that passes through the device from side to side
-  final double pitch;
+  final double beta;
 
   ///Roll value from the device in radians
   ///A roll is a rotation around a longitudinal (Y) axis that passes through the device from its top to bottom
-  final double roll;
+  final double gamma;
 
-  SensorEvent(this.pitch, this.roll);
+  // A yaw is a rotation around a Z
+  final double alpha;
+
+  SensorEvent(this.beta, this.gamma, this.alpha);
 
   @override
-  String toString() => '[Event: (pitch: $pitch, roll: $roll)]';
+  String toString() => '[Event: (beta: $beta, gamma: $gamma,alpha: $alpha)]';
 }
 
 class AeyriumSensor {
@@ -36,6 +39,6 @@ class AeyriumSensor {
   }
 
   static SensorEvent _listToSensorEvent(List<double> list) {
-    return SensorEvent(list[0], list[1]);
+    return SensorEvent(list[0], list[1], list[2]);
   }
 }
